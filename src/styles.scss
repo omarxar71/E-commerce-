@@ -43,13 +43,23 @@ a , a:hover{
 .product:hover
 {
     box-shadow: var(--shadow);
-    border: solid 1px var(--main-color);
+    border: solid 2px var(--main-color);
+    cursor: pointer;
 }
 .product .btn 
 {
     transition: transform 1s , opacity 1s;
     transform: translateY(100%);
     opacity: 0;
+    background-color: var(--main-color);
+    padding: 15px 10px;
+    color: white;
+    width: 100%;
+    border-radius:8px ;
+    -webkit-border-radius:8px ;
+    -moz-border-radius:8px ;
+    -ms-border-radius:8px ;
+    -o-border-radius:8px ;
 }
 .product:hover .btn 
 {
@@ -85,4 +95,7 @@ a , a:hover{
     -o-border-radius: 8px;
     padding: 10px;
 }
-
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}

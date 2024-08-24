@@ -1,1 +1,14 @@
-<p>categories works!</p>
+<div class="categoreis">
+    <div class="container mx-auto">
+        <div class="row">
+            @for (cat of allCat; track $index) {
+                <div class="cat w-4/12 p-3  cursor-pointer">
+                    <div class="inner p-2">
+                        <img [src]="cat.image" alt="category image">
+                        <h1 class="text-white">{{cat.name}}</h1>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
