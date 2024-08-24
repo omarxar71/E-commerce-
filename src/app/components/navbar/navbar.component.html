@@ -1,0 +1,41 @@
+<!-- navbar.component.html -->
+<nav class="py-3 bg-slate-300">
+    <div class="container flex flex-wrap items-center justify-between mx-auto">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="../../../assets/images/freshcart-logo.svg" alt="">
+        </div>
+
+        <!-- Mobile Menu Button (hamburger) -->
+        <button class="block md:hidden text-black" (click)="toggleNavbar()">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+
+        <!-- Main Menu -->
+        <ul [ngClass]="{'hidden': !isNavbarOpen, 'flex': isNavbarOpen}" class="flex-col md:flex md:flex-row md:items-center w-full md:w-auto">
+            <li><a class="ml-2" routerLink="/home" routerLinkActive="active">home</a></li>
+            <li><a class="ml-2" routerLink="/categories" routerLinkActive="active">categories</a></li>
+            <li><a class="ml-2" routerLink="/brands" routerLinkActive="active">brands</a></li>
+            <li><a class="ml-2" routerLink="/product" routerLinkActive="active">product</a></li>
+        </ul>
+
+        <!-- Right Menu -->
+        <ul [ngClass]="{'hidden': !isNavbarOpen, 'flex': isNavbarOpen}" class="flex-col md:flex md:flex-row md:items-center ms-auto w-full md:w-auto">
+            <li class="relative">
+                <a class="ml-2" href="">
+                    wishlist <i class="fa-regular fa-heart"></i>
+                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">7</span>
+                </a>
+            </li>
+            <li class="relative">
+                <a class="ml-2" href="">
+                    cart <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">7</span>
+                </a>
+            </li>
+            <li><a class="ml-2" href="">logout</a></li>
+        </ul>
+    </div>
+</nav>
