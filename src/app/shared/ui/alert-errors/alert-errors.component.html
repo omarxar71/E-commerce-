@@ -1,0 +1,23 @@
+@if (formGroup.get(FormControl)?.errors && formGroup.get(FormControl)?.touched ) {
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <ul>
+            @if (formGroup.get(FormControl)?.getError('required')) {
+                <li>This field is required</li>
+            }
+
+            @if (formGroup.get(FormControl)?.getError(FormControl)) {
+                <li>Pleas Enter An Valid E-mail</li>
+            }
+            @if (formGroup.get(FormControl)?.getError('pattern')) {
+                <li>Pleas Enter An Valid Password</li>
+            }
+            @if (formGroup.get(FormControl)?.getError('minlength')) {
+                <li>Minimum Length Is 2 Character</li>
+            }
+
+            @if (formGroup.get(FormControl)?.getError('maxlength')) {
+                <li>Max Length Is 10 Character</li>
+            }
+        </ul>
+      </div>
+}
