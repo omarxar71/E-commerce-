@@ -1,0 +1,1 @@
+export let baseURL = "https://ecommerce.routemisr.com"
