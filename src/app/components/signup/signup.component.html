@@ -1,16 +1,31 @@
 <div class="signup h-[100vh]">
    <div class="container mx-auto my-4">
     <form [formGroup]="form" (ngSubmit)="submitForm()">
-        <input formControlName="name" class="w-full my-3 p-2 rounded-md" type="text" placeholder="Inter Your Name....">
+        <input [ngClass]="{'focus:border-green-500': !form.get('name')?.errors && (form.get('name')?.touched || form.get('name')?.dirty),
+                            'focus:border-red-500': form.get('name')?.errors && (form.get('name')?.touched || form.get('name')?.dirty)}"
+         formControlName="name" class="w-full my-3 p-2 rounded-md" type="text" placeholder="Inter Your Name....">
         <alertErrors [formGroup]="form" [FormControl]="'name'" />
         <input formControlName="email" class="w-full my-3 p-2 rounded-md" type="email" placeholder="Inter Your email...">
         <alertErrors [formGroup]="form" [FormControl]="'email'" />
         <input formControlName="password" class="w-full my-3 p-2 rounded-md" type="password" placeholder="Inter Your password...">
         <alertErrors [formGroup]="form" [FormControl]="'password'" />
-        <input formControlName="rePassword" class="w-full my-3 p-2 rounded-md" type="password" placeholder="Re-Enter your Password...">
+        <input  formControlName="rePassword" class="w-full my-3 p-2 rounded-md" type="password" placeholder="Re-Enter your Password...">
         <alertErrors [formGroup]="form" [FormControl]="'rePassword'" />
 
-        <button [disabled]="form.invalid"  >Register</button>
+        <button [disabled]="form.invalid" >
+            @if (isBtnSubmit) {
+                
+                <i class="fas fa-spinner fa-spin"></i>
+            }@else {
+                Register
+                
+            }
+
+
+            
+        </button>
+        <h3 class="w-full text-red-600 text-center p-3  ">{{errorMessage}}</h3>
     </form>
    </div>
 </div>
+

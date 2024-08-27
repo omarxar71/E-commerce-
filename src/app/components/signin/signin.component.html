@@ -1,1 +1,28 @@
-<p>signin works!</p>
+<div class="signup h-[100vh]">
+    <div class="container mx-auto my-4">
+     <form [formGroup]="form" (ngSubmit)="submitForm()">
+        
+         <input formControlName="email" class="w-full my-3 p-2 rounded-md" type="email" placeholder="Inter Your email...">
+         <alertErrors [formGroup]="form" [FormControl]="'email'" />
+         <input formControlName="password" class="w-full my-3 p-2 rounded-md" type="password" placeholder="Inter Your password...">
+         <alertErrors [formGroup]="form" [FormControl]="'password'" />
+        
+ 
+         <button >
+             @if (isBtnSubmit) {
+                 
+                 <i class="fas fa-spinner fa-spin"></i>
+             }@else {
+                 Login
+                 
+             }
+ 
+ 
+             
+         </button>
+         <h3 class="w-full text-red-600 text-center p-3  ">{{errorMessage}}</h3>
+     </form>
+    </div>
+ </div>
+ 
+ 

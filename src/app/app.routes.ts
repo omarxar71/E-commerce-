@@ -10,6 +10,7 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductComponent } from './components/product/product.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { authGurdGuard } from './core/guards/auth-gurd.guard';
 
 export const routes: Routes = [
   {path:"" , component:AuthLayoutComponent , children:[
@@ -18,7 +19,7 @@ export const routes: Routes = [
     {path:'signup' , component:SignupComponent}
   ]
   }, 
-  {path:'' , component:MainLayoutComponent , children:[
+  {path:'' , component:MainLayoutComponent,canActivate:[authGurdGuard] , children:[
     {path:'' , redirectTo:"home" ,pathMatch:'full'},
     {path:'home' , component:HomeComponent}, 
     {path:'about', component:AboutComponent}, 
