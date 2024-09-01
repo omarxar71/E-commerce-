@@ -9,11 +9,12 @@ import { CartComponent } from './components/cart/cart.component';
 import { BrandsComponent } from './components/brands/brands.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { ProductComponent } from './components/product/product.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authGurdGuard } from './core/guards/auth-gurd.guard';
+import { isLogedInGuard } from './core/guards/is-loged-in.guard';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
-  {path:"" , component:AuthLayoutComponent , children:[
+  {path:"" , component:AuthLayoutComponent , canActivate:[isLogedInGuard] , children:[
     {path:'', redirectTo:'signin' , pathMatch:'full'},
     {path:'signin' , component:SigninComponent}, 
     {path:'signup' , component:SignupComponent}
