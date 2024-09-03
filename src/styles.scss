@@ -1,15 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.active{
-    color: white;
-    background-color:var(--main-color) ;
-    border-radius: 8px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    -ms-border-radius: 8px;
-    -o-border-radius: 8px;
-}
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 
 
@@ -85,7 +78,7 @@ a , a:hover{
 }
 
 
-.active{
+.active-link{
     color: white;
     background-color:var(--main-color) ;
     border-radius: 8px;
@@ -99,3 +92,5 @@ a , a:hover{
     display: flex;
     flex-wrap: wrap;
 }
+
+

@@ -1,0 +1,18 @@
+
+
+    <h1>Shop Popular Categories</h1>
+
+
+            <owl-carousel-o [options]="customOptions">
+
+                <ng-container >
+                    @for (slide of allCat; track $index) {
+                        <ng-template carouselSlide [id]="slide._id">
+                            <img [src]="slide.image" class="h-[200px]" [alt]="slide.alt" [title]="slide.name">
+                          </ng-template>
+                    }
+                </ng-container>
+            
+              </owl-carousel-o>
+       
+

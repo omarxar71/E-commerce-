@@ -25,3 +25,12 @@ button:hover{
     -ms-transition: .3s;
     -o-transition: .3s;
 }
+ul li a {
+    font-size: 20px;
+   color: white;
+   background-color: #027c02;
+   margin: 7px;
+}
+ul li a:hover {
+background-color: #024b02;
+}

@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product';
+import { RouterModule } from '@angular/router';
+import { MainLayoutComponent } from "../../layout/main-layout/main-layout.component";
+import { SliderHomeComponent } from "../slider-home/slider-home.component";
+import { SliderCatComponent } from "../slider-cat/slider-cat.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [RouterModule, MainLayoutComponent, SliderHomeComponent, SliderCatComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
