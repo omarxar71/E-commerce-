@@ -12,12 +12,14 @@ import { ProductComponent } from './components/product/product.component';
 import { authGurdGuard } from './core/guards/auth-gurd.guard';
 import { isLogedInGuard } from './core/guards/is-loged-in.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ResteComponent } from './components/reste/reste.component';
 
 export const routes: Routes = [
   {path:"" , component:AuthLayoutComponent , canActivate:[isLogedInGuard] , children:[
     {path:'', redirectTo:'signin' , pathMatch:'full'},
     {path:'signin' , component:SigninComponent}, 
-    {path:'signup' , component:SignupComponent}
+    {path:'signup' , component:SignupComponent},
+    {path:"reset" , component:ResteComponent}
   ]
   }, 
   {path:'' , component:MainLayoutComponent,canActivate:[authGurdGuard] , children:[

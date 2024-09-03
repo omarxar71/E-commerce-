@@ -1,0 +1,76 @@
+<div class="reset h-[100vh]">
+
+    @if (steps==1) {
+        <div class="container mx-auto my-4">
+            <form [formGroup]="ForgotPassword" (ngSubmit)="step1()">
+               
+                <input formControlName="email" class="w-full my-3 p-2 rounded-md" type="email" placeholder="Inter Your email...">
+                <alertErrors [formGroup]="ForgotPassword" [FormControl]="'email'" />
+                <button >
+                    @if (isBtnSubmit) {
+                        
+                        <i class="fas fa-spinner fa-spin"></i>
+                    }@else {
+                        Submit Email
+                        
+                    }
+                </button>
+                <h3 class="w-full text-red-600 text-center p-3  ">{{errorMessage}}</h3>
+            </form>
+           </div>
+    }
+
+
+
+
+@if (steps==2) {
+    <div class="container mx-auto my-4">
+        <form [formGroup]="VerifyResetCode" (ngSubmit)="step2()">
+           
+            <input formControlName="text" class="w-full my-3 p-2 rounded-md" type="text" placeholder="Inter Your email...">
+            <alertErrors [formGroup]="VerifyResetCode" [FormControl]="'code'" />
+            <button >
+                @if (isBtnSubmit) {
+                    
+                    <i class="fas fa-spinner fa-spin"></i>
+                }@else {
+                    submit code
+                    
+                }
+            </button>
+            <h3 class="w-full text-red-600 text-center p-3  ">{{errorMessage}}</h3>
+        </form>
+       </div>
+
+}
+
+ 
+
+
+@if(steps==3){
+    <div class="container mx-auto my-4">
+        <form [formGroup]="ResetPassword" (ngSubmit)="step3()">
+           
+            <input formControlName="email" class="w-full my-3 p-2 rounded-md" type="email" placeholder="Inter Your email...">
+            <alertErrors [formGroup]="ResetPassword" [FormControl]="'code'" />
+            <input formControlName="newPassword" class="w-full my-3 p-2 rounded-md" type="text" placeholder="Inter Your email...">
+            <alertErrors [formGroup]="ResetPassword" [FormControl]="'Password'" />
+            <button >
+                @if (isBtnSubmit) {
+                    
+                    <i class="fas fa-spinner fa-spin"></i>
+                }@else {
+                    Reset Your Password
+                    
+                }
+            </button>
+            <h3 class="w-full text-red-600 text-center p-3  ">{{errorMessage}}</h3>
+        </form>
+       </div>
+}
+
+
+ </div>
+ 
+ 
+

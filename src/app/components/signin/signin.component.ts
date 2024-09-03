@@ -1,14 +1,14 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 import { AlertErrorsComponent } from "../../shared/ui/alert-errors/alert-errors.component";
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [AlertErrorsComponent ,ReactiveFormsModule],
+  imports: [AlertErrorsComponent ,ReactiveFormsModule , RouterLink],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss'
 })

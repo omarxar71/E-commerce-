@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(private _HttpClient:HttpClient) { }
 signUpService=(user:any):Observable<any>=>{
-  return this._HttpClient.post(`${baseURL}/api/v1/auth/signin` ,user)
+  return this._HttpClient.post(`${baseURL}/api/v1/auth/signup` ,user)
 }
 
 signInService=(user:any):Observable<any>=>{
@@ -31,5 +31,24 @@ userData = ()=>{
       localStorage.removeItem('token'); 
     }
   }
+}
+
+
+
+forgotPasswords=(email:any):Observable<any>=>{
+  return this._HttpClient.post(`${baseURL}/api/v1/auth/forgotPasswords` ,email)
+}
+
+
+
+
+verifyResetCode=(code:any):Observable<any>=>{
+  return this._HttpClient.post(`${baseURL}/api/v1/auth/verifyResetCode` ,code)
+}
+
+
+
+resetPassword=(info:any):Observable<any>=>{
+  return this._HttpClient.put(`${baseURL}/api/v1/auth/resetPassword` ,info)
 }
 }
