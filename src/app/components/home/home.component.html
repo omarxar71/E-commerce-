@@ -7,7 +7,7 @@
         <div class="row ">
             @for (product of allProducts; track $index) {
                 <div class="product  w-3/12">
-                  <div class="inner p-2 ">
+                  <div class="inner p-2 " [routerLink]="'/details/' +product._id">
                     <img [src]="product.imageCover" alt="product photo">
                     <h5>{{product.category.name}}</h5>
                     <h6>{{product.title.split(' ').splice(0,2).join(' ')}}</h6>
@@ -15,8 +15,9 @@
                         <span>{{product.price}}</span>
                         <span><i class="fa-solid fa-star rating-color"></i></span>
                     </div>
-                    <button class="btn">Show Cart</button>
                   </div>
+                  <button (click)="AddToCart(product._id)" class="btn">Show Cart</button>
+
                 </div>
             }
         </div>

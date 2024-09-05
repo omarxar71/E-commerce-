@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product';
 import { RouterModule } from '@angular/router';
 import { MainLayoutComponent } from "../../layout/main-layout/main-layout.component";
 import { SliderHomeComponent } from "../slider-home/slider-home.component";
 import { SliderCatComponent } from "../slider-cat/slider-cat.component";
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,7 @@ export class HomeComponent implements OnInit{
   constructor(private _ProductsService:ProductsService) { 
 
   }
+  private readonly _cartService=inject(CartService);
   getProducts=()=>{
     this._ProductsService.getProductAPI().subscribe({
       next:(res)=>{
@@ -32,5 +34,15 @@ export class HomeComponent implements OnInit{
   };
   ngOnInit(): void {
     this.getProducts()
+  }
+  AddToCart=(productId:string)=>{
+    this._cartService.AddProductToCart(productId).subscribe({
+      next:(res)=>{
+        console.log(res);
+      } , 
+      error:(err)=>{
+        console.log(err)
+      }
+    })
   }
 }

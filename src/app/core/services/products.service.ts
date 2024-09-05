@@ -12,5 +12,8 @@ export class ProductsService {
   getProductAPI=():Observable <any> =>{
     return this._HttpClient.get(baseURL+'/api/v1/products')
   }
+  getProductDetailsAPI=(id:any):Observable <any> =>{
+    return this._HttpClient.get(baseURL+`/api/v1/products/${id}`)
+  }
   
 }
