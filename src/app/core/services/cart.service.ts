@@ -35,5 +35,5 @@ GetLoggedUserCart= ():Observable <any>=>{
       clearCart= ():Observable <any>=>{
         return this._HttpClient.delete(`${baseURL}/api/v1/cart`, {headers:{...this.headers}})
         }
-    
+       
 }

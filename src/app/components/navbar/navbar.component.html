@@ -29,13 +29,11 @@
                     <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">7</span>
                 </a>
             </li>
-            <li class="relative">
-                <a class="ml-2" href="">
-                    cart <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">7</span>
+            <li class="relative"><a class="ml-2" routerLink="/cart"> <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">{{cart?.numOfCartItems}}</span>
                 </a>
             </li>
-            <li><a class="ml-2" href="">logout</a></li>
+            <li><a class="ml-2" routerLink="/signin">logout</a></li>
         </ul>
     </div>
 </nav>

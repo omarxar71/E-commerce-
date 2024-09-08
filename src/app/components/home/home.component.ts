@@ -6,6 +6,7 @@ import { MainLayoutComponent } from "../../layout/main-layout/main-layout.compon
 import { SliderHomeComponent } from "../slider-home/slider-home.component";
 import { SliderCatComponent } from "../slider-cat/slider-cat.component";
 import { CartService } from '../../core/services/cart.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,7 @@ export class HomeComponent implements OnInit{
 
   }
   private readonly _cartService=inject(CartService);
+  private readonly _ToastrService = inject(ToastrService)
   getProducts=()=>{
     this._ProductsService.getProductAPI().subscribe({
       next:(res)=>{
@@ -39,6 +41,8 @@ export class HomeComponent implements OnInit{
     this._cartService.AddProductToCart(productId).subscribe({
       next:(res)=>{
         console.log(res);
+        this._ToastrService.success('product added to the cart' , 'success' , {progressBar:true})
+      
       } , 
       error:(err)=>{
         console.log(err)

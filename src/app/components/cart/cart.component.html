@@ -1,1 +1,40 @@
-<p>cart works!</p>
+<div class="cart">
+   
+    @if (!isLoading) {
+     @if (cartOutsideData.numOfCartItems!=0) {
+        <div class="container mx-auto">
+            <p class="main-color mt-2">items: {{cartOutsideData.numOfCartItems}}</p>
+            <h1>shop cart:</h1>
+            <p class="main-color">Total Cart Price : {{cart.totalCartPrice}}</p>
+            @for (item of cart.products; track $index) {
+                <div class="row bg-neutral-200 m-3 p-3">
+                    <div class="w-1/12">
+                        <img [src]="item.product.imageCover" alt="product photo">
+                    </div>
+                    <div class="w-11/12 flex justify-between items-center">
+                        <div class="mx-2">
+                            <h1>woman</h1>
+                            <p class="main-color">price :{{item.price}}</p>
+                            <button (click)="DeleteProduct(item.product._id)" class="btn">remove</button>
+                        </div>
+                        <div class="">
+                            <button>+</button>
+                            <span class="mr-1">{{item.count}}</span>
+                            <button>-</button>
+                        </div>
+                    </div>
+                    <button class="mt-3" [routerLink]="['/address',cart._id]">Order Now</button>
+                </div>
+            }
+            </div>
+     
+     }@else {
+        <img class="cart-empty" src="../../../assets/images/cart.png" alt="">
+ 
+     }
+              
+    }@else {
+        <div class="loader"></div>
+    
+    }
+</div>

@@ -1,0 +1,8 @@
+<div class="container">
+    <form [formGroup]="address">
+        <textarea formControlName="details" placeholder="Details"></textarea>
+        <input formControlName="phone"  type="number" placeholder="phone number">
+        <input formControlName="city"  type="text" placeholder="city">
+        <button (click)="payment()">Order</button>
+    </form>
+</div>

@@ -14,6 +14,7 @@ import { isLogedInGuard } from './core/guards/is-loged-in.guard';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ResteComponent } from './components/reste/reste.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AddresseComponent } from './components/addresse/addresse.component';
 
 export const routes: Routes = [
   {path:"" , component:AuthLayoutComponent , canActivate:[isLogedInGuard] , children:[
@@ -31,7 +32,8 @@ export const routes: Routes = [
     {path:'brands' , component:BrandsComponent},
     {path:"categories" , component:CategoriesComponent}, 
     {path:"product" , component:ProductComponent},
-    {path:"details/:id" , component:DetailsComponent}
+    {path:"details/:id" , component:DetailsComponent},
+    {path:"address/:id" , component:AddresseComponent},
   ]
 }, 
 {path:"" , component:NotFoundComponent}
