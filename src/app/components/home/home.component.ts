@@ -7,16 +7,20 @@ import { SliderHomeComponent } from "../slider-home/slider-home.component";
 import { SliderCatComponent } from "../slider-cat/slider-cat.component";
 import { CartService } from '../../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
+import { SoldOutPipe } from "../../core/pipes/sold-out.pipe";
+import { SearchPipe } from '../../core/pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, MainLayoutComponent, SliderHomeComponent, SliderCatComponent],
+  imports: [RouterModule, MainLayoutComponent, SliderHomeComponent, SliderCatComponent, SoldOutPipe, SearchPipe, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit{
   allProducts:Product[]=[];
+  searchterm:string='';
   constructor(private _ProductsService:ProductsService) { 
 
   }

@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { CarouselModule, OwlOptions } from 'ngx-owl-carousel-o';
+import { SoldOutPipe } from '../../core/pipes/sold-out.pipe';
 @Component({
   selector: 'app-slider-home',
   standalone: true,
-  imports: [CarouselModule],
+  imports: [CarouselModule , SoldOutPipe],
   templateUrl: './slider-home.component.html',
   styleUrl: './slider-home.component.scss'
 })
