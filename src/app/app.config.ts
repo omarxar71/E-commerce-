@@ -3,11 +3,12 @@ import { provideRouter, withHashLocation, withInMemoryScrolling, withViewTransit
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
+import { headersInterceptor } from './core/interceptor/headers.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes , withViewTransitions() , withHashLocation() , withInMemoryScrolling({scrollPositionRestoration:"top"})),
-     provideHttpClient() , importProvidersFrom(BrowserAnimationsModule)
+     provideHttpClient(withInterceptors([headersInterceptor])) , importProvidersFrom(BrowserAnimationsModule)
     ,provideAnimations(),
     provideToastr(),]
 };
