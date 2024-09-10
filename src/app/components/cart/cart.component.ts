@@ -4,6 +4,7 @@ import { CartData, CartProduct } from '../../core/interfaces/cart.interface';
 import { routes } from '../../app.routes';
 import { RouterEvent, RouterLink } from '@angular/router';
 import { count } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,8 @@ templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
-  cart!:CartData | object;
+  private readonly toaster = inject(ToastrService)
+  cart!:CartData | any;
   cartOutsideData!:CartData;
   isLoading:boolean=true;
 private readonly _cart = inject(CartService)
@@ -64,6 +66,8 @@ clearCart=()=>{
       console.log(res)
       if(res.message == 'success'){
         this.cart={}
+        this.toaster.error('cart is empty now')
+
       }
     }
   })

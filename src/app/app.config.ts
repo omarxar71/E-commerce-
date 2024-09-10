@@ -6,9 +6,10 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
 import { headersInterceptor } from './core/interceptor/headers.interceptor';
+import { loadingInterceptor } from './core/interceptor/loading.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes , withViewTransitions() , withHashLocation() , withInMemoryScrolling({scrollPositionRestoration:"top"})),
-     provideHttpClient(withInterceptors([headersInterceptor])) , importProvidersFrom(BrowserAnimationsModule)
+     provideHttpClient(withInterceptors([headersInterceptor , loadingInterceptor])) , importProvidersFrom(BrowserAnimationsModule)
     ,provideAnimations(),
     provideToastr(),]
 };
