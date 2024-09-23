@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/interfaces/product';
 import { RouterModule } from '@angular/router';
@@ -10,15 +10,19 @@ import { ToastrService } from 'ngx-toastr';
 import { SoldOutPipe } from "../../core/pipes/sold-out.pipe";
 import { SearchPipe } from '../../core/pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
+
   standalone: true,
   imports: [RouterModule, MainLayoutComponent, SliderHomeComponent, SliderCatComponent, SoldOutPipe, SearchPipe, FormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit , OnDestroy{
+private readonly _CartService=inject(CartService)
+  cancelSubcription:Subscription=new Subscription();
   allProducts:Product[]=[];
   searchterm:string='';
   constructor(private _ProductsService:ProductsService) { 
@@ -27,10 +31,12 @@ export class HomeComponent implements OnInit{
   private readonly _cartService=inject(CartService);
   private readonly _ToastrService = inject(ToastrService)
   getProducts=()=>{
+
     this._ProductsService.getProductAPI().subscribe({
+
       next:(res)=>{
         this.allProducts=res.data;
-        
+      
 
       }, 
       error:(err)=>{
@@ -44,7 +50,8 @@ export class HomeComponent implements OnInit{
   AddToCart=(productId:string)=>{
     this._cartService.AddProductToCart(productId).subscribe({
       next:(res)=>{
-        console.log(res);
+        this._cartService.cartCounter.next(res.numOfCartItems)
+
         this._ToastrService.success('product added to the cart' , 'success' , {progressBar:true})
       
       } , 
@@ -52,5 +59,7 @@ export class HomeComponent implements OnInit{
         console.log(err)
       }
     })
+  }
+  ngOnDestroy(): void {
   }
 }

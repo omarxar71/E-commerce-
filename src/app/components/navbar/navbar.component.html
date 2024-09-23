@@ -15,11 +15,25 @@
 
         <!-- Main Menu -->
         <ul [ngClass]="{'hidden': !isNavbarOpen, 'flex': isNavbarOpen}" class="flex-col md:flex md:flex-row md:items-center w-full md:w-auto">
-            <li><a class="ml-2" routerLink="/home" routerLinkActive="active">home</a></li>
-            <li><a class="ml-2" routerLink="/categories" routerLinkActive="active">categories</a></li>
-            <li><a class="ml-2" routerLink="/brands" routerLinkActive="active">brands</a></li>
-            <li><a class="ml-2" routerLink="/product" routerLinkActive="active">product</a></li>
+            <li><a class="ml-2" routerLink="/home" routerLinkActive="active">{{"navbar.home"| translate}}</a></li>
+            <li><a class="ml-2" routerLink="/categories" routerLinkActive="active">{{"navbar.categories"| translate}}</a></li>
+            <li><a class="ml-2" routerLink="/brands" routerLinkActive="active">{{"navbar.brands"| translate}}</a></li>
+            <li><a class="ml-2" routerLink="/product" routerLinkActive="active">{{"navbar.products"| translate}}</a></li>
+            
         </ul>
+        <div class="relative inline-block ml-3">
+            <select class="appearance-none px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold border-none rounded-full shadow-lg hover:from-blue-600 hover:to-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-50 transition-all duration-300 ease-in-out">
+              <option >Arabic</option>
+              <option >English</option>
+            </select>
+            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </div>
+          </div>
+          
+          
 
         <!-- Right Menu -->
         <ul [ngClass]="{'hidden': !isNavbarOpen, 'flex': isNavbarOpen}" class="flex-col md:flex md:flex-row md:items-center ms-auto w-full md:w-auto">
@@ -30,7 +44,7 @@
                 </a>
             </li>
             <li class="relative"><a class="ml-2" routerLink="/cart"> <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">{{cart?.numOfCartItems}}</span>
+                    <span class="ms-2 bottom-5 right-0 absolute inline-block whitespace-nowrap rounded-[0.27rem] bg-danger-100 px-[0.65em] pb-[0.25em] pt-[0.35em] text-center align-baseline text-[0.75em] font-bold leading-none text-danger-700 dark:bg-[#f10028] dark:text-danger-500">{{counter}}</span>
                 </a>
             </li>
             <li><a class="ml-2" routerLink="/signin">logout</a></li>

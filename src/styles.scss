@@ -130,3 +130,19 @@ a , a:hover{
     80%,
     100% {border-radius:50%}
   }
+  ::-webkit-scrollbar-thumb{
+    background-color:#0aad0a;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+  ::-webkit-scrollbar{
+    width: 10px;
+    
+
+}
+html{
+    scroll-behavior: smooth;
+}

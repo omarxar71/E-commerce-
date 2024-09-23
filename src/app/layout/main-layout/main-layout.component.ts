@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Host, HostListener } from '@angular/core';
 import { NavbarComponent } from "../../components/navbar/navbar.component";
 import { RouterOutlet } from '@angular/router';
 
@@ -10,5 +10,17 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './main-layout.component.scss'
 })
 export class MainLayoutComponent {
+  showBtn:boolean=false;
+scrollTop(){
+  window.scrollTo(0,0);
+}
+@HostListener("window:scroll")hideBtn(){
+  let scrollbar= document.documentElement.scrollTop;
+  if(scrollbar > 500){
+    this.showBtn=true;
+  }else{
+    this.showBtn=false; 
+  }
 
+}
 }
